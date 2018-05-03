@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Card Images</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let book of books">
+
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{book?.volumeInfo?.imageLinks?.thumbnail}}">
+          </ion-avatar>
+          <h2>Gabriel de Souza</h2>
+        </ion-item>
+
+        <img src="{{book?.volumeInfo?.imageLinks?.thumbnail}}" (click)="openNavDetailsPage(book)" />
+
+        <ion-card-content>
+          <strong>
+            <p>{{ book?.volumeInfo?.title }}</p>
+          </strong>
+        </ion-card-content>
+
+        <ion-row no-padding>
+          <ion-col>
+            <button ion-button clear small color="success" icon-start>
+              <ion-icon name='star'></ion-icon>
+              Favorite
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button clear small color="success" icon-start>
+              <ion-icon name='chatboxes'></ion-icon>
+              Message
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
