@@ -13,7 +13,11 @@ import { HomeDetailPage } from '../pages/home/home-detail/home-detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../pages/home/home.provider';
-
+import { LoginPage } from '../pages/login/login';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { HttpModule } from '@angular/http';
+import { UrlHelperService } from 'angular-oauth2-oidc';
+import { BeerService } from './beer.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -21,11 +25,13 @@ import { HomeProvider } from '../pages/home/home.provider';
     ContactPage,
     HomePage,
     TabsPage,
-    HomeDetailPage
+    HomeDetailPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -35,13 +41,18 @@ import { HomeProvider } from '../pages/home/home.provider';
     ContactPage,
     HomePage,
     TabsPage,
-    HomeDetailPage
+    HomeDetailPage,
+    LoginPage
   ],
   providers: [
+    OAuthService,
+    BeerService,
+    HttpModule,
     StatusBar,
     SplashScreen,
     HomeProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    UrlHelperService,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
