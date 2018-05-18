@@ -2,12 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { TabsPage } from '../tabs/tabs';
+import { RegisterPage } from '../register/register';
 declare const OktaAuth: any;
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers:[
+  providers: [
     OAuthService
   ]
 })
@@ -19,10 +20,11 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController, private oauthService: OAuthService) {
     oauthService.redirectUri = window.location.origin;
-    oauthService.clientId = '0oaf14d230EXt3eyL0h7';
+    oauthService.clientId = '0oaf2w67k0LknXLj70h7';
     oauthService.scope = 'openid profile email';
     oauthService.oidc = true;
-    oauthService.issuer = 'https://dev-950706.oktapreview.com';
+    oauthService.issuer = 'https://dev-744009.oktapreview.com';
+   
   }
 
   ionViewDidLoad(): void {
@@ -66,4 +68,8 @@ export class LoginPage {
       });
     });
   }
+  registerPage() {
+    this.navCtrl.push(RegisterPage);
+  }
+ 
 }

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Nome" name="signin.firsName" id="firsNameField" type="text" required [(ngModel)]="signin.firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Sobrenome" name="signin.lastName" id="lastNameField" type="text" required [(ngModel)]="signin.lastName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="E-mail" name="signin.email" id="emailField" type="text" required [(ngModel)]="signin.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Login" name="signin.login" id="loginField" type="text" required [(ngModel)]="signin.login"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Celular" name="signin.mobilePhone" id="mobilePhoneField" type="number" required [(ngModel)]="signin.mobilePhone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Senha" name="signin.password" id="passwordField" type="password" required [(ngModel)]="signin.password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-list>
+        <ion-item *ngFor="let errorItem of erroObj.errorCauses">
+          <h3>{{errorItem.errorSummary}}</h3>
+        </ion-item>
+      </ion-list>
+    </ion-row> -->
+  </form>
+</ion-content>

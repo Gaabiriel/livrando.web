@@ -10,7 +10,6 @@ export class HomeDetailPage {
   book;
 
   constructor(params: NavParams) {
-    debugger;
     this.book = params.data.book;
   }
 

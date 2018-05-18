@@ -14,9 +14,9 @@ export class MyApp {
   rootPage: any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, oauthService: OAuthService) {
-    debugger;
+    
     if (oauthService.hasValidIdToken()) {
-      debugger;
+    
       this.rootPage = TabsPage;
     } else {
       this.rootPage = LoginPage;

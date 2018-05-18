@@ -11,7 +11,6 @@ export class BeerService {
   }
 
   getAll(): Observable<any> {
-    debugger;
     const headers: Headers = new Headers();
     headers.append('Authorization', this.oauthService.authorizationHeader());
 

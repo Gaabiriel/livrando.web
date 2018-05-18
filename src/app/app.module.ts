@@ -18,6 +18,8 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpModule } from '@angular/http';
 import { UrlHelperService } from 'angular-oauth2-oidc';
 import { BeerService } from './beer.service';
+import { RegisterPage } from '../pages/register/register';
+import { RegisterService } from '../pages/register/register.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { BeerService } from './beer.service';
     HomePage,
     TabsPage,
     HomeDetailPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -42,11 +45,13 @@ import { BeerService } from './beer.service';
     HomePage,
     TabsPage,
     HomeDetailPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     OAuthService,
     BeerService,
+    RegisterService,
     HttpModule,
     StatusBar,
     SplashScreen,
