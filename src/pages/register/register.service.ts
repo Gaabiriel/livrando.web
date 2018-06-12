@@ -35,4 +35,16 @@ export class RegisterService {
     return this.http.post(this.urlRegister, body, options)
       .map((response: Response) => response.json());
   }
+
+  activateUser(activateUrl: string): Observable<any> {
+    const headers: Headers = new Headers();
+    headers.append('Authorization', 'SSWS 00trG2GtoQy4ccLbHx1MWS2f97l1HJruvt--PrDcMU');
+    headers.append('accept', "application/json");
+    headers.append('content-type', "application/json");
+
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.urlRegister, options)
+    .map((response: Response) => response.json());
+  }
 }

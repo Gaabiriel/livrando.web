@@ -32,10 +32,36 @@ export class RegisterPage {
     this.registerService.register(this.signin)
       .subscribe(res => {
         let toast = this.toastCtrl.create({
-          message: "Parabéns " + res.profile.firstName.toUpperCase() + ", você foi cadastrado com sucesso. Um email de ativação foi enviado para você para finalizar seu cadastro.",
+          message: "Parabéns " + res.profile.firstName.toUpperCase() + ", você foi cadastrado com sucesso.",
           duration: 5000,
           position: 'top'
         });
+        debugger;
+        this.registerService.activateUser(res._links.activate.href).
+          subscribe(response => {
+            debugger;
+            let toast = this.toastCtrl.create({
+              message: "Parabéns " + res.profile.firstName.toUpperCase() + ", você já está ativo no sistema. Faça login com a senha cadastrada",
+              duration: 5000,
+              position: 'top'
+            });
+          },
+            error => {
+              debugger;
+              this.erroObj = JSON.parse(error._body);
+              let errorMessage = "";
+              this.erroObj.errorCauses.map(x => {
+                errorMessage += x.errorSummary + ", ";
+              });
+              let toast = this.toastCtrl.create({
+                message: errorMessage,
+                duration: 5000,
+                position: 'top'
+              });
+              toast.present();
+            });
+
+
         toast.present();
         this.navCtrl.push(LoginPage);
       }, error => {
